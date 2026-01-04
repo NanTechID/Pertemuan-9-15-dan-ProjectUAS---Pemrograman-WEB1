@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Link - Tautan Penting</title>
+	 <link rel="stylesheet" type="text/css" href="style.css">
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	 <style>
+	 	.link-container {
+	 		max-width: 800px;
+	 		margin: 50px auto;
+	 		padding: 40px;
+	 	}
+	 	.page-title {
+	 		text-align: center;
+	 		color: #2c3e50;
+	 		font-size: 2.5rem;
+	 		margin-bottom: 20px;
+	 		animation: fadeIn 0.6s ease-out;
+	 	}
+	 	.link-grid {
+	 		display: grid;
+	 		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	 		gap: 25px;
+	 		margin-top: 40px;
+	 	}
+	 	.link-card {
+	 		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	 		border-radius: 15px;
+	 		padding: 30px;
+	 		text-align: center;
+	 		box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+	 		transition: all 0.3s ease;
+	 		animation: slideUp 0.6s ease-out backwards;
+	 	}
+	 	.link-card:nth-child(1) { animation-delay: 0.1s; }
+	 	.link-card:nth-child(2) { animation-delay: 0.2s; }
+	 	.link-card:nth-child(3) { animation-delay: 0.3s; }
+	 	.link-card:nth-child(4) { animation-delay: 0.4s; }
+	 	.link-card:hover {
+	 		transform: translateY(-10px) scale(1.05);
+	 		box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+	 	}
+	 	.link-card a {
+	 		color: white;
+	 		text-decoration: none;
+	 		display: block;
+	 	}
+	 	.link-icon {
+	 		font-size: 3rem;
+	 		margin-bottom: 15px;
+	 		opacity: 0.9;
+	 	}
+	 	.link-title {
+	 		font-size: 1.4rem;
+	 		font-weight: 600;
+	 		margin-top: 10px;
+	 	}
+	 	.link-desc {
+	 		font-size: 0.9rem;
+	 		margin-top: 8px;
+	 		opacity: 0.85;
+	 	}
+	 	@keyframes fadeIn {
+	 		from { opacity: 0; }
+	 		to { opacity: 1; }
+	 	}
+	 	@keyframes slideUp {
+	 		from {
+	 			opacity: 0;
+	 			transform: translateY(30px);
+	 		}
+	 		to {
+	 			opacity: 1;
+	 			transform: translateY(0);
+	 		}
+	 	}
+	 </style>
+</head>
+<body>
+	<main>
+		<button class="home-button"
+ 	 onclick="window.location.href='index.html'">
+ 	 <i class="fa fa-home"></i>
+	</button>
+	<div class="link-container">
+		<h1 class="page-title"><i class="fas fa-link"></i> Tautan Penting</h1>
+		<div class="link-grid">
+			<div class="link-card">
+				<a href="https://unival-cilegon.ac.id/" target="_blank">
+					<div class="link-icon"><i class="fas fa-university"></i></div>
+					<div class="link-title">UNIVAL</div>
+					<div class="link-desc">Universitas Al-Khairiyah</div>
+				</a>
+			</div>
+			<div class="link-card">
+				<a href="https://google.com/" target="_blank">
+					<div class="link-icon"><i class="fab fa-google"></i></div>
+					<div class="link-title">GOOGLE</div>
+					<div class="link-desc">Mesin Pencari</div>
+				</a>
+			</div>
+			<div class="link-card">
+				<a href="paragraf.html">
+					<div class="link-icon"><i class="fas fa-file-alt"></i></div>
+					<div class="link-title">PARAGRAF</div>
+					<div class="link-desc">Halaman Paragraf</div>
+				</a>
+			</div>
+			<div class="link-card">
+				<a href="https://instagram.com/" target="_blank">
+					<div class="link-icon"><i class="fab fa-instagram"></i></div>
+					<div class="link-title">INSTAGRAM</div>
+					<div class="link-desc">Media Sosial</div>
+				</a>
+			</div>
+		</div>
+	</div>
+	</main>
+</body>
+</html>

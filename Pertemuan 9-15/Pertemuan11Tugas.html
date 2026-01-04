@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Tugas DOM Manipulation</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 25px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      animation: slideDown 0.6s ease-out;
+    }
+    h1 {
+      color: #667eea;
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    #paragraf {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: white;
+      padding: 25px;
+      border-radius: 15px;
+      font-size: 1.2rem;
+      margin: 20px 0;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transition: all 0.3s;
+    }
+    #paragraf:hover {
+      transform: scale(1.02);
+    }
+    hr {
+      border: none;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #667eea, transparent);
+      margin: 30px 0;
+    }
+    .button-section {
+      background: #f8f9fa;
+      padding: 25px;
+      border-radius: 15px;
+      margin: 20px 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+    .section-title {
+      color: #2c3e50;
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    button {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      margin: 10px 5px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    }
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+    }
+    button:active {
+      transform: translateY(0);
+    }
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🚀 Belajar DOM JavaScript</h1>
+    <p id="paragraf">Ini adalah paragraf awal.</p>
+
+    <hr>
+
+    <!-- Tugas 1 -->
+    <div class="button-section">
+      <div class="section-title">📝 Tugas 1: Ubah Teks</div>
+      <button onclick="ubahTeks()">Ubah Teks Paragraf</button>
+    </div>
+
+    <hr>
+
+    <!-- Tugas 2 -->
+    <div class="button-section">
+      <div class="section-title">🎨 Tugas 2: Manipulasi DOM</div>
+      <button onclick="ubahJudul()">Ubah Judul</button>
+      <button onclick="ubahWarna()">Ubah Warna Judul</button>
+      <button onclick="ubahParagrafLain()">Ubah Paragraf</button>
+    </div>
+  </div>
+
+  <script>
+    // Tugas 1 – Ubah teks paragraf
+    function ubahTeks() {
+      let p = document.getElementById("paragraf");
+      p.innerHTML = "Teks paragraf telah diubah!";
+    }
+
+    // Tombol 1: Ubah judul (getElementById)
+    function ubahJudul() {
+      let j = document.getElementById("judul");
+      j.innerHTML = "Judul Berubah!";
+    }
+
+    // Tombol 2: Ubah warna judul (getElementById)
+    function ubahWarna() {
+      let j = document.getElementById("judul");
+      j.style.color = "blue";
+    }
+
+    // Tombol 3: Ubah paragraf (querySelector)
+    function ubahParagrafLain() {
+      let p2 = document.querySelector("#paragraf");
+      p2.innerHTML = "Paragraf diubah menggunakan querySelector!";
+      p2.style.fontWeight = "bold";
+    }
+  </script>
+
+</body>
+</html>

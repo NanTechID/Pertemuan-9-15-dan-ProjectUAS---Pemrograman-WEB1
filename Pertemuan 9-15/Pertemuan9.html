@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Latihan JavaScript Dasar</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+      color: #333;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    h1 {
+      color: white;
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 40px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+      animation: fadeIn 0.6s ease-out;
+    }
+    .button-group {
+      text-align: center;
+      margin-bottom: 30px;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    button {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      margin: 8px 6px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 1.05rem;
+      font-weight: 600;
+      box-shadow: 0 5px 15px rgba(240, 147, 251, 0.4);
+      transition: all 0.3s;
+    }
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(240, 147, 251, 0.6);
+    }
+    button:active {
+      transform: translateY(0);
+    }
+    h3 {
+      color: white;
+      font-size: 1.8rem;
+      margin: 30px 0 15px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    }
+    #biodata, #hasilLuas, #daftarHobi {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      margin-top: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      animation: slideUp 0.6s ease-out;
+      min-height: 80px;
+    }
+    #biodata p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #2c3e50;
+      margin: 10px 0;
+    }
+    #daftarHobi li {
+      font-size: 1.1rem;
+      color: #2c3e50;
+      margin: 10px 0;
+      padding: 10px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      transition: all 0.3s;
+    }
+    #daftarHobi li:hover {
+      background: #e9ecef;
+      padding-left: 20px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Latihan JavaScript Dasar</h1>
+
+    <!-- Tombol untuk menampilkan data -->
+    <button onclick="tampilkanBiodata()">Tampilkan Biodata</button>
+    <button onclick="hitungLuas()">Hitung Luas Persegi Panjang</button>
+    <button onclick="tampilkanHobi()">Tampilkan Hobi</button>
+
+    <!-- Area hasil -->
+    <h3>Biodata:</h3>
+    <div id="biodata"></div>
+    <h3>Daftar Hobi:</h3>
+    <ul id="daftarHobi"></ul>
+    <h3>Luas Persegi Panjang:</h3>
+    <div id="hasilLuas"></div>
+  </div>
+
+  <script>
+    // =====================
+    // 1. Variabel Biodata
+    // =====================
+    let nama = "Isnan Setiadi";
+    let nim = "231001001";
+    let prodi = "Informatika";
+
+    // Fungsi menampilkan biodata
+    function tampilkanBiodata() {
+      let isi = `
+        <p><b>Nama:</b> ${nama}</p>
+        <p><b>NIM:</b> ${nim}</p>
+        <p><b>Program Studi:</b> ${prodi}</p>
+      `;
+      document.getElementById("biodata").innerHTML = isi;
+    }
+
+    // =====================
+    // 2. Fungsi Hitung Luas Persegi Panjang
+    // =====================
+    
+    function hitungLuas() {
+      let panjang = 10;
+      let lebar = 5;
+      let luas = panjang * lebar;
+
+      // Tampilkan hasil di console dan di halaman
+      console.log("Luas persegi panjang:", luas);
+      document.getElementById("hasilLuas").innerHTML = `<p><b>Luas Persegi Panjang:</b> ${luas}</p>`;
+    }
+
+    // =====================
+    // 3. Array Daftar Hobi
+    // =====================
+    let hobi = ["Membaca", "Bermain Game", "Olahraga", "Ngoding"];
+
+    // Fungsi menampilkan daftar hobi
+    function tampilkanHobi() {
+      let daftar = document.getElementById("daftarHobi");
+      daftar.innerHTML = ""; // bersihkan isi sebelumnya
+
+      for (let i = 0; i < hobi.length; i++) {
+        let item = document.createElement("li");
+        item.textContent = hobi[i];
+        daftar.appendChild(item);
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard R2-5 - NANTECH.ID</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    .hero-banner {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 80px 40px;
+      text-align: center;
+      border-radius: 25px;
+      margin: 30px auto;
+      max-width: 1200px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      animation: fadeIn 0.8s ease-out;
+    }
+    .hero-banner h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    .hero-banner p {
+      font-size: 1.3rem;
+      opacity: 0.95;
+    }
+    .content-section {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 30px;
+    }
+    .grid-menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+    .menu-card {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      animation: slideUp 0.6s ease-out backwards;
+    }
+    .menu-card:nth-child(1) { animation-delay: 0.1s; }
+    .menu-card:nth-child(2) { animation-delay: 0.2s; }
+    .menu-card:nth-child(3) { animation-delay: 0.3s; }
+    .menu-card:nth-child(4) { animation-delay: 0.4s; }
+    .menu-card:nth-child(5) { animation-delay: 0.5s; }
+    .menu-card:nth-child(6) { animation-delay: 0.6s; }
+    .menu-card:nth-child(7) { animation-delay: 0.7s; }
+    .menu-card:nth-child(8) { animation-delay: 0.8s; }
+    .menu-card:nth-child(9) { animation-delay: 0.9s; }
+    .menu-card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    }
+    .menu-card i {
+      font-size: 3rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 15px;
+    }
+    .menu-card a {
+      color: #2c3e50;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-brand">Dashboard R2-5 - NANTECH.ID</div>
+    <ul class="nav-links">
+      <li><a href="heading.html">Heading</a></li>
+      <li><a href="paragraf.html">Paragraf</a></li>
+      <li><a href="link.html">Link</a></li>
+      <li><a href="image.html">Image</a></li>
+      <li><a href="list.html">List</a></li>
+      <li><a href="galeri.html">Galeri</a></li>
+      <li><a href="flexbox.html">Flexbox</a></li>
+      <li><a href="tabel.html">Table</a></li>
+      <li><a href="tugas1.html">Tugas 1</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main content -->
+  <main>
+    <div class="hero-banner">
+      <h1>✨ Selamat Datang di Kelas R2-5 ✨</h1>
+      <p>Portal Pembelajaran Web Development - NANTECH.ID</p>
+    </div>
+    
+    <div class="content-section">
+      <h2 style="text-align: center; color: #2c3e50; font-size: 2rem; margin-bottom: 30px;">
+        📚 Pilih Materi Pembelajaran
+      </h2>
+      
+      <div class="grid-menu">
+        <div class="menu-card">
+          <i class="fas fa-tasks"></i>
+          <a href="tugas1.html">Tugas 1</a>
+        </div>
+        <div class="menu-card">
+          <i class="fas fa-heading"></i>
+          <a href="heading.html">Heading</a>
+        </div>
+        <div class="menu-card">
+          <i class="fas fa-paragraph"></i>
+          <a href="paragraf.html">Paragraf</a>
+        </div>
+        <div class="menu-card">
+          <i class="fas fa-link"></i>
+          <a href="link.html">Link</a>
+        </div>
+        <div class="menu-card">
+          <i class="fas fa-image"></i>
+          <a href="image.html">Image</a>
+        </div>
+        <div class="menu-card">
+          <i class="fas fa-list"></i>
+          <a href="list.html">List</a>
+        </div>
+        <div class="menu-card">
+          <i class="fas fa-images"></i>
+          <a href="galeri.html">Galeri</a>
+        </div>
+        <div class="menu-card">
+          <i class="fas fa-th"></i>
+          <a href="flexbox.html">Flexbox</a>
+        </div>
+        <div class="menu-card">
+          <i class="fas fa-table"></i>
+          <a href="tabel.html">Table</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

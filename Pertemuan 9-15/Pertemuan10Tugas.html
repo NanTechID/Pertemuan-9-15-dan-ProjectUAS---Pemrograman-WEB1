@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Lanjutan</title>
+  <link rel="stylesheet" href="../style_light_blue.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Demo JavaScript Lanjutan</h1>
+
+    <div class="section">
+      <h2>Cek Nilai</h2>
+      <button onclick="cekGrade(85, this)">Cek Grade (Nilai 85)</button>
+      <button onclick="cekGrade(70, this)">Cek Grade (Nilai 70)</button>
+      <button onclick="cekGrade(55, this)">Cek Grade (Nilai 55)</button>
+    </div>
+
+    <div class="section">
+      <h2>Daftar Teman</h2>
+      <button onclick="tampilTeman(this)">Tampil Teman</button>
+    </div>
+
+    <div class="section">
+      <h2>Luas Lingkaran</h2>
+      <button onclick="hitungLuasLingkaran(7, this)">Hitung Luas Lingkaran (Radius 7)</button>
+    </div>
+
+    <div class="section">
+      <h2>Fungsi Callback</h2>
+      <button onclick="hitung(5, 3, jumlah, this)">Hitung Jumlah (5 + 3)</button>
+      <button onclick="hitung(5, 3, kali, this)">Hitung Kali (5 * 3)</button>
+    </div>
+
+  </div>
+
+  <script>
+    // Helper function to display output below the button
+    function displayOutput(button, content) {
+      // Remove any existing output div below this button
+      let existingOutput = button.nextElementSibling;
+      if (existingOutput && existingOutput.classList.contains('output-div')) {
+        existingOutput.remove();
+      }
+      // Create a new output div
+      let outputDiv = document.createElement('div');
+      outputDiv.className = 'output-div';
+      outputDiv.style.marginTop = '10px';
+      outputDiv.style.padding = '10px';
+      outputDiv.style.backgroundColor = '#f1f8e9';
+      outputDiv.style.borderRadius = '8px';
+      outputDiv.style.borderLeft = '4px solid #4fc3f7';
+      outputDiv.innerHTML = content;
+      // Insert the output div right after the button
+      button.parentNode.insertBefore(outputDiv, button.nextSibling);
+    }
+
+    // 1. Program Cek Nilai menggunakan if-else
+    function cekGrade(nilai, button) {
+      let grade;
+      if (nilai >= 80) {
+        grade = "A";
+      } else if (nilai >= 60) {
+        grade = "B";
+      } else {
+        grade = "C";
+      }
+      displayOutput(button, "Grade: " + grade);
+    }
+
+    // 2. Array Daftar Teman menggunakan for loop
+    let teman = ["Andi", "Budi", "Citra", "Dewi", "Eka"];
+    function tampilTeman(button) {
+      let teks = "Daftar Teman:<br>";
+      for (let i = 0; i < teman.length; i++) {
+        teks += (i + 1) + ". " + teman[i] + "<br>";
+      }
+      displayOutput(button, teks);
+    }
+
+    // 3. Fungsi Arrow untuk menghitung luas lingkaran
+    const hitungLuasLingkaran = (radius, button) => {
+      const luas = Math.PI * Math.pow(radius, 2);
+      displayOutput(button, "Luas Lingkaran dengan radius " + radius + " adalah " + luas.toFixed(2));
+    };
+
+    // 4. Fungsi Callback
+    function hitung(a, b, callback, button) {
+      const hasil = callback(a, b);
+      displayOutput(button, "Hasil: " + hasil);
+    }
+
+    function jumlah(a, b) {
+      return a + b;
+    }
+
+    function kali(a, b) {
+      return a * b;
+    }
+
+  </script>
+
+</body>
+</html>

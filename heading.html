@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Heading - Demo</title>
+	  <link rel="stylesheet" type="text/css" href="style.css">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	  <style>
+	  	.heading-container {
+	  		max-width: 900px;
+	  		margin: 40px auto;
+	  		padding: 40px;
+	  		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	  		border-radius: 20px;
+	  		box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+	  	}
+	  	.heading-container h1, .heading-container h2, 
+	  	.heading-container h3, .heading-container h4 {
+	  		color: white;
+	  		margin: 20px 0;
+	  		padding: 15px 20px;
+	  		background: rgba(255,255,255,0.1);
+	  		border-left: 5px solid #fff;
+	  		border-radius: 10px;
+	  		animation: slideIn 0.6s ease-out forwards;
+	  		opacity: 0;
+	  		transform: translateX(-30px);
+	  	}
+	  	.heading-container h1 { animation-delay: 0.1s; font-size: 2.5rem; }
+	  	.heading-container h2 { animation-delay: 0.2s; font-size: 2rem; }
+	  	.heading-container h3 { animation-delay: 0.3s; font-size: 1.75rem; }
+	  	.heading-container h4 { animation-delay: 0.4s; font-size: 1.5rem; }
+	  	@keyframes slideIn {
+	  		to {
+	  			opacity: 1;
+	  			transform: translateX(0);
+	  		}
+	  	}
+	  	.heading-info {
+	  		color: white;
+	  		text-align: center;
+	  		margin-top: 30px;
+	  		font-size: 1.1rem;
+	  		opacity: 0.9;
+	  	}
+	  </style>
+</head>
+<body>
+	<main>
+	<button class="home-button"
+ 	 onclick="window.location.href='index.html'">
+ 	 <i class="fa fa-home"></i>
+	</button>
+	<div class="heading-container">
+		<h1><i class="fas fa-star"></i> Heading Level 1</h1>
+		<h2><i class="fas fa-certificate"></i> Heading Level 2</h2>
+		<h3><i class="fas fa-award"></i> Heading Level 3</h3>
+		<h4><i class="fas fa-medal"></i> Heading Level 4</h4>
+		<p class="heading-info">✨ Contoh penggunaan berbagai tingkat heading HTML dengan styling modern</p>
+	</div>
+	</main>
+</body>
+</html>

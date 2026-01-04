@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scientific Calculator</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #2b2b2b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* PHONE */
+.phone {
+  width: 300px;
+  height: 600px;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0,0,0,.5);
+}
+
+/* DISPLAY */
+.display {
+  height: 35%;
+  padding: 24px;
+  background: linear-gradient(180deg,#ffb07c,#ff6f91);
+  color: #fff;
+}
+
+.title {
+  text-align: center;
+  font-size: 14px;
+  opacity: .9;
+}
+
+.calc {
+  margin-top: 25px;
+  font-size: 13px;
+  opacity: .85;
+  min-height: 18px;
+}
+
+.result {
+  margin-top: 10px;
+  font-size: 38px;
+  font-weight: 600;
+}
+
+/* KEYS */
+.keys {
+  height: 65%;
+  padding: 14px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 10px;
+  background: #fff;
+}
+
+button {
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  background: #f1f1f1;
+}
+
+.op {
+  background: #ff9a8c;
+  color: white;
+}
+
+.equal {
+  background: #ff6f91;
+  color: white;
+}
+
+.sci {
+  background: #ffd3c4;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+</style>
+</head>
+
+<body>
+
+<div class="phone">
+  <div class="display">
+    <div class="title">Calculator</div>
+    <div class="calc" id="history"></div>
+    <div class="result" id="display">0</div>
+  </div>
+
+  <div class="keys">
+    <!-- SCIENTIFIC -->
+    <button class="sci" onclick="sqrt()">√</button>
+    <button class="sci" onclick="square()">x²</button>
+    <button class="sci" onclick="sin()">sin</button>
+    <button class="sci" onclick="cos()">cos</button>
+
+    <!-- CONTROL -->
+    <button class="op" onclick="clearAll()">AC</button>
+    <button class="op" onclick="del()">C</button>
+    <button class="op" onclick="percent()">%</button>
+    <button class="op" onclick="operator('/')">÷</button>
+
+    <!-- NUMBERS -->
+    <button onclick="number('7')">7</button>
+    <button onclick="number('8')">8</button>
+    <button onclick="number('9')">9</button>
+    <button class="op" onclick="operator('*')">×</button>
+
+    <button onclick="number('4')">4</button>
+    <button onclick="number('5')">5</button>
+    <button onclick="number('6')">6</button>
+    <button class="op" onclick="operator('-')">−</button>
+
+    <button onclick="number('1')">1</button>
+    <button onclick="number('2')">2</button>
+    <button onclick="number('3')">3</button>
+    <button class="op" onclick="operator('+')">+</button>
+
+    <button onclick="number('0')">0</button>
+    <button onclick="number('.')">.</button>
+    <button class="equal" style="grid-column: span 2;" onclick="calculate()">=</button>
+  </div>
+</div>
+
+<script>
+let current = "";
+let history = "";
+let lastOp = false;
+
+function update() {
+  document.getElementById("display").innerText = current || "0";
+  document.getElementById("history").innerText = history;
+}
+
+function number(n) {
+  if (lastOp) {
+    current = "";
+    lastOp = false;
+  }
+  if (n === "." && current.includes(".")) return;
+  current += n;
+  update();
+}
+
+function operator(op) {
+  if (!current) return;
+  history += current + " " + op + " ";
+  current = "";
+  lastOp = true;
+  update();
+}
+
+function calculate() {
+  if (!current) return;
+  let expr = history + current;
+  try {
+    let result = eval(expr);
+    history = expr + " =";
+    current = result.toString();
+    update();
+    history = "";
+  } catch {
+    current = "Error";
+    history = "";
+    update();
+  }
+}
+
+function clearAll() {
+  current = "";
+  history = "";
+  update();
+}
+
+function del() {
+  current = current.slice(0, -1);
+  update();
+}
+
+function percent() {
+  if (!current) return;
+  current = (parseFloat(current) / 100).toString();
+  update();
+}
+
+/* ===== SCIENTIFIC ===== */
+function sqrt() {
+  if (!current) return;
+  history = "√(" + current + ")";
+  current = Math.sqrt(parseFloat(current)).toString();
+  update();
+}
+
+function square() {
+  if (!current) return;
+  history = "(" + current + ")²";
+  current = Math.pow(parseFloat(current), 2).toString();
+  update();
+}
+
+function sin() {
+  if (!current) return;
+  history = "sin(" + current + ")";
+  current = Math.sin(parseFloat(current) * Math.PI / 180).toFixed(6);
+  update();
+}
+
+function cos() {
+  if (!current) return;
+  history = "cos(" + current + ")";
+  current = Math.cos(parseFloat(current) * Math.PI / 180).toFixed(6);
+  update();
+}
+</script>
+
+</body>
+</html>

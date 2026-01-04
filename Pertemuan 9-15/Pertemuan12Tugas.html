@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 12 Tugas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        h2 {
+            color: #555;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        .message {
+            margin-top: 10px;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .error {
+            color: #d32f2f;
+            background: #ffebee;
+        }
+        .success {
+            color: #388e3c;
+            background: #e8f5e8;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+        input, select {
+            margin-bottom: 15px;
+            padding: 12px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.5);
+        }
+        button {
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        p {
+            line-height: 1.6;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pertemuan 12 Tugas</h1>
+
+        <!-- Tombol yang menampilkan pesan di halaman -->
+        <button id="showMessageBtn">Klik untuk Tampilkan Pesan</button>
+        <div id="messageDisplay" class="message"></div>
+
+        <!-- Dropdown warna untuk mengubah warna teks paragraf -->
+        <h2>Ubah Warna Teks Paragraf</h2>
+        <select id="colorDropdown">
+            <option value="black">Hitam</option>
+            <option value="red">Merah</option>
+            <option value="blue">Biru</option>
+            <option value="green">Hijau</option>
+            <option value="purple">Ungu</option>
+        </select>
+        <p id="colorParagraph">Ini adalah paragraf yang warnanya bisa diubah.</p>
+
+        <!-- Form login sederhana -->
+        <h2>Form Login</h2>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+        <div id="loginMessage" class="message"></div>
+    </div>
+
+    <script>
+        // Fungsi untuk tombol menampilkan pesan
+        document.getElementById('showMessageBtn').addEventListener('click', function() {
+            document.getElementById('messageDisplay').textContent = 'Pesan ditampilkan di halaman!';
+        });
+
+        // Fungsi untuk dropdown warna
+        document.getElementById('colorDropdown').addEventListener('change', function() {
+            const selectedColor = this.value;
+            document.getElementById('colorParagraph').style.color = selectedColor;
+        });
+
+        // Fungsi untuk validasi form login
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah submit default
+
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            const messageDiv = document.getElementById('loginMessage');
+
+            // Reset pesan
+            messageDiv.textContent = '';
+            messageDiv.className = 'message';
+
+            // Validasi
+            if (username === '') {
+                messageDiv.textContent = 'Username tidak boleh kosong.';
+                messageDiv.classList.add('error');
+                return;
+            }
+
+            if (password.length < 6) {
+                messageDiv.textContent = 'Password minimal 6 karakter.';
+                messageDiv.classList.add('error');
+                return;
+            }
+
+            // Jika validasi lolos, tampilkan alert sukses
+            alert('Login berhasil!');
+            // Reset form
+            this.reset();
+        });     
+    </script>
+    
+</body>
+</html>

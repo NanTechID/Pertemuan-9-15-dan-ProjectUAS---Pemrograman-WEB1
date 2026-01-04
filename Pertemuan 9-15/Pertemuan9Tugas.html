@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Dasar</title>
+  <link rel="stylesheet" href="../style_light_blue.css">
+ <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    p {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="judul">Biodata Saya</h1>
+    <p id="biodata"></p>
+    <button onclick="tampilkanBiodata()">Tampilkan Biodata</button>
+    <hr>
+    <h2>Luas Persegi Panjang</h2>
+    <p id="luas"></p>
+    <button onclick="hitungLuas()">Hitung Luas</button>
+    <hr>
+    <h2>Daftar Hobi</h2>
+    <ul id="hobi"></ul>
+    <button onclick="tampilkanHobi()">Tampilkan Hobi</button>
+  </div>
+  
+  <script>
+    // Biodata
+    let nama = "Isnan Setiadi";
+    let nim = "23040051";
+    let prodi = "Teknik Informatika";
+
+    // Fungsi untuk menampilkan biodata
+    function tampilkanBiodata() {
+      document.getElementById("biodata").innerHTML =
+        "Nama: " + nama + "<br>" + 
+        "NIM: " + nim + "<br>" + 
+        "Prodi: " + prodi;
+    }
+
+    // Menghitung luas persegi panjang
+    let panjang = 10;
+    let lebar = 5;
+
+    function hitungLuas() {
+      let luas = panjang * lebar;
+      console.log("Luas Persegi Panjang: " + luas);
+      document.getElementById("luas").innerHTML = "Luas Persegi Panjang: " + luas;
+    }
+
+    // Daftar hobi
+    let hobi = ["Membaca", "Bersepeda", "Menonton Film"];
+
+    // Menampilkan daftar hobi
+    function tampilkanHobi() {
+      let listHobi = document.getElementById("hobi");
+      hobi.forEach(function(item) {
+        let li = document.createElement("li");
+        li.textContent = item;
+        listHobi.appendChild(li);
+      });
+    }
+
+
+  </script>
+
+</body>
+</html>

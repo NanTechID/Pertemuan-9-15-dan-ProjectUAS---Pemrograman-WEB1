@@ -1,0 +1,18 @@
+Wireframe Kalkulator Sederhana
+
++-----------------------------+
+|          Display            |
+|  [____________________]     |
++-----------------------------+
+|  C   /   *   -              |
+|  7   8   9   +              |
+|  4   5   6                  |
+|  1   2   3                  |
+|  0       .   =              |
++-----------------------------+
+
+Deskripsi:
+- Header: Judul "Kalkulator Sederhana"
+- Display: Area untuk menampilkan input dan hasil perhitungan
+- Buttons: Grid 4x5 dengan tombol angka, operator, clear, dan equal
+- Layout: Responsif, terpusat di halaman

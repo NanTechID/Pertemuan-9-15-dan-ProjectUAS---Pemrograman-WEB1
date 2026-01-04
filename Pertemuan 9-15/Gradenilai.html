@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Grade Nilai Mahasiswa</title>
+    <link rel="stylesheet" href="Gradenilai.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Program Grade Nilai</h2>
+
+        <label>Masukkan Nilai:</label><br>
+        <input type="number" id="nilai" placeholder="0 - 100">
+        <br><br>
+
+        <button onclick="hitungGrade()">Hitung Grade</button>
+
+        <h3 id="hasil"></h3>
+    </div>
+
+    <script>
+        function hitungGrade() {
+            let nilai = document.getElementById("nilai").value;
+            let grade = "";
+
+            if (nilai >= 85 && nilai <= 100) {
+                grade = "A";
+            } else if (nilai >= 75) {
+                grade = "B";
+            } else if (nilai >= 65) {
+                grade = "C";
+            } else if (nilai >= 50) {
+                grade = "D";
+            } else if (nilai >= 0) {
+                grade = "E";
+            } else {
+                grade = "Nilai tidak valid";
+            }
+
+            document.getElementById("hasil").innerHTML =
+                "Nilai Anda: " + nilai + "<br>Grade: " + grade;
+        }
+    </script>
+
+</body>
+</html>

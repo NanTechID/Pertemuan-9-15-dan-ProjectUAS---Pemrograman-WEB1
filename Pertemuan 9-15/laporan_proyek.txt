@@ -1,0 +1,27 @@
+Laporan Proyek Mini: Kalkulator Sederhana
+
+Judul Proyek: Kalkulator Sederhana
+
+Tujuan:
+- Membuat aplikasi web kalkulator sederhana untuk melakukan operasi matematika dasar.
+- Memperkenalkan konsep dasar pengembangan web menggunakan HTML, CSS, dan JavaScript.
+- Menyediakan antarmuka yang mudah digunakan dan menarik secara visual.
+
+Fitur Utama:
+- Operasi matematika dasar: penjumlahan, pengurangan, perkalian, pembagian.
+- Tombol clear untuk menghapus input.
+- Tombol decimal untuk angka desimal.
+- Tampilan hasil perhitungan di layar.
+- Desain modern dengan gradien, bayangan, dan animasi hover.
+
+Teknologi yang Digunakan:
+- HTML: Struktur halaman web.
+- CSS: Styling dan desain visual.
+- JavaScript: Logika interaktif kalkulator.
+
+Cara Penggunaan:
+1. Buka file kalkulator.html di browser web.
+2. Klik tombol angka untuk memasukkan angka.
+3. Klik tombol operator untuk memilih operasi.
+4. Klik tombol "=" untuk menghitung hasil.
+5. Klik tombol "C" untuk menghapus input.

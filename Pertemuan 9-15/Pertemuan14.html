@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        display: flex; justify-content: center; align-items: center;
+        height: 100vh; background: #f0f4f8;
+        }
+        .app {
+        background: white; padding: 20px; border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 300px;
+        }
+        .app h2 { margin-top: 0; }
+        .app input { width: 70%; padding: 8px; }
+        .app button { padding: 8px 12px; margin-left: 5px; }
+        .app ul { list-style: none; padding: 0; margin-top: 15px; }
+        .app ul li { padding: 5px; border-bottom: 1px solid #ddd; }
+    </style>
+<head>
+  <meta charset="UTF-8">
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <h2>To-Do List</h2>
+    <input type="text" id="taskInput" placeholder="Tulis tugas baru...">
+    <button onclick="tambahTugas()">Tambah</button>
+    <ul id="taskList"></ul>
+  </div>
+ <script>
+    function tambahTugas() {
+  let input = document.getElementById("taskInput");
+  let teks = input.value.trim();
+  if (teks === "") {
+    alert("Tugas tidak boleh kosong!");
+    return;
+  }
+
+  let li = document.createElement("li");
+  li.textContent = teks;
+  li.onclick = function() {
+    this.remove(); // hapus tugas jika diklik
+  };
+
+  document.getElementById("taskList").appendChild(li);
+  input.value = ""; // reset input
+}
+ </script>
+</body>
+</html>

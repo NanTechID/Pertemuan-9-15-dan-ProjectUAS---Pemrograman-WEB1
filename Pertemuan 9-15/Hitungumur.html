@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitung Umur</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            max-width: 450px;
+            width: 100%;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: #555;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 25px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.5);
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        #result {
+            margin-top: 25px;
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+            min-height: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Hitung Umur</h1>
+        <label for="name">Masukkan nama:</label>
+        <input type="text" id="name" placeholder="Nama Anda" required>
+        <label for="birthdate">Masukkan tanggal lahir:</label>
+        <input type="date" id="birthdate" required>
+        <button onclick="calculateAge()">Hitung Umur</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculateAge() {
+            const nameInput = document.getElementById('name');
+            const birthdateInput = document.getElementById('birthdate');
+            const resultDiv = document.getElementById('result');
+
+            if (!nameInput.value.trim()) {
+                resultDiv.textContent = 'Silakan masukkan nama.';
+                return;
+            }
+
+            if (!birthdateInput.value) {
+                resultDiv.textContent = 'Silakan masukkan tanggal lahir.';
+                return;
+            }
+
+            const name = nameInput.value.trim();
+            const birthdate = new Date(birthdateInput.value);
+            const today = new Date();
+
+            let years = today.getFullYear() - birthdate.getFullYear();
+            let months = today.getMonth() - birthdate.getMonth();
+            let days = today.getDate() - birthdate.getDate();
+
+            if (days < 0) {
+                months--;
+                let prevMonth = today.getMonth() - 1;
+                let prevYear = today.getFullYear();
+                if (prevMonth < 0) {
+                    prevMonth = 11;
+                    prevYear--;
+                }
+                let daysInPrevMonth = new Date(prevYear, prevMonth + 1, 0).getDate();
+                days += daysInPrevMonth;
+            }
+
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            resultDiv.innerHTML = `Halo ${name}, umur Anda adalah ${years} tahun, ${months} bulan, dan ${days} hari.`;
+        }
+    </script>
+</body>
+
+</html>
